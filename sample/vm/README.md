@@ -4,7 +4,7 @@
 
 Create the following resources.
 
-![https://github.com/JuvenileTalk9/Bicep/tree/main/sample/vm/deploy_vm.jpg](https://github.com/JuvenileTalk9/Bicep/tree/main/sample/vm/deploy_vm.jpg)
+![https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/vm/deploy_vm.jpg](https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/vm/deploy_vm.jpg)
 
 ## Command
 
