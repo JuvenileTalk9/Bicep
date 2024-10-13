@@ -2,7 +2,7 @@
 
 ## Overview
 
-以下のリソースを作成する
+Create the following resources.
 
 - ストレージアカウント1つ
 - Blobコンテナ1つ
