@@ -1,10 +1,10 @@
-# vm
+# nat_gateway
 
 ## Overview
 
 Create the following resources.
 
-![https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/vm/deploy_vm.jpg](https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/vm/deploy_vm.jpg)
+![https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/nat_gateway/deploy_nat_gateway.jpg](https://raw.githubusercontent.com/JuvenileTalk9/Bicep/refs/heads/main/sample/nat_gateway/deploy_nat_gateway.jpg)
 
 ## Command
 
@@ -13,11 +13,11 @@ Create the following resources.
 ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa.pem
 
 # Generate resource-group
-az group create --name deploy_vm --location japaneast
+az group create --name deploy_nat_gateway --location japaneast
 
 # Deploy keyvault
 keyVaultName="myKeyVault1223334444"
-az deployment group create --name keyvault --resource-group deploy_vm --template-file keyvault.bicep --parameters keyVaultName="${keyVaultName}"
+az deployment group create --name keyvault --resource-group deploy_nat_gateway --template-file keyvault.bicep --parameters keyVaultName="${keyVaultName}"
 
 # Attach admin role
 az role assignment create --assignee "<user-object-id>" --role "Key Vault Administrator" --scope "<keyvault-resource-id>"
@@ -27,7 +27,7 @@ az keyvault secret set --vault-name "${keyVaultName}" --name vm-key --file ~/.ss
 
 # Deploy vnet and vm
 sshPublicKey=$(cat ~/.ssh/id_rsa.pub)
-az deployment group create --name vm --resource-group deploy_vm --template-file vm.bicep --parameters sshPublicKey="${sshPublicKey}"
+az deployment group create --name nat_gateway --resource-group deploy_nat_gateway --template-file nat_gateway.bicep --parameters sshPublicKey="${sshPublicKey}"
 ```
 
 `<user-object-id>`は`Microsoft Entra ID`から参照可能。
